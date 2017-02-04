@@ -1,0 +1,67 @@
+<%= form_for(run) do |f| %>
+  <% if run.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(run.errors.count, "error") %> prohibited this run from being saved:</h2>
+
+      <ul>
+      <% run.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date %>
+    <%= f.text_field :date %>
+  </div>
+
+  <div class="field">
+    <%= f.label :resting_pulse %>
+    <%= f.text_field :resting_pulse %>
+  </div>
+
+  <div class="field">
+    <%= f.label :weight %>
+    <%= f.text_field :weight %>
+  </div>
+
+  <div class="field">
+    <%= f.label :type %>
+    <%= f.text_field :type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :pace %>
+    <%= f.text_field :pace %>
+  </div>
+
+  <div class="field">
+    <%= f.label :heartrate %>
+    <%= f.text_field :heartrate %>
+  </div>
+
+  <div class="field">
+    <%= f.label :duration %>
+    <%= f.time_select :duration %>
+  </div>
+
+  <div class="field">
+    <%= f.label :distance %>
+    <%= f.text_field :distance %>
+  </div>
+
+  <div class="field">
+    <%= f.label :weather %>
+    <%= f.text_field :weather %>
+  </div>
+
+  <div class="field">
+    <%= f.label :remark %>
+    <%= f.text_field :remark %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
