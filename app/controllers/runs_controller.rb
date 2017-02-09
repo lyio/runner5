@@ -5,7 +5,7 @@ class RunsController < ApplicationController
   # GET /runs
   # GET /runs.json
   def index
-    @runs = Run.all
+    @runs = current_user.runs
   end
 
   # GET /runs/1
@@ -26,6 +26,7 @@ class RunsController < ApplicationController
   # POST /runs.json
   def create
     @run = Run.new(run_params)
+    @run.user_id = current_user.id
 
     respond_to do |format|
       if @run.save
