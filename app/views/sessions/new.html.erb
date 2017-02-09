@@ -1,0 +1,7 @@
+<i>Do not have an account yet? <%= link_to 'Register here!', register_path %><i>
+
+<%= form_tag "/sessions" do %>
+  <label> Email / Username </label>
+  <%= text_field_tag "value" %>
+  <%= submit_tag "Login" %>
+<% end %>

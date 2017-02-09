@@ -3,20 +3,19 @@ class User < ApplicationRecord
 
   before_save :format_email_username
 
-  def find_user_by(value)
+  def self.find_user_by(value)
     where(["username = :value OR email = :value", {value: value}]).first
   end
 
   def format_email_username
     self.email = self.email.delete(' ').downcase
-    self.username = self.email.delete(' ').downcase
+    self.username = self.username.delete(' ').downcase
   end
 
   def send_login_link
     generate_login_token
 
-    template = 'login_link'
-    UserMailer.send(template).deliver_now
+    UserMailer.login_link(self).deliver_later
   end
 
   def generate_login_token
@@ -25,8 +24,8 @@ class User < ApplicationRecord
     save!
   end
 
-  def login_link
-    "http://localhost:3000/auth?token=#{self.login_token}"
+  def valid_token?(token)
+    token && self.login_token && !login_token_expired?
   end
 
   def login_token_expired?

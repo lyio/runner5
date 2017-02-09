@@ -1,4 +1,5 @@
 class RunsController < ApplicationController
+  before_action :require_authentication
   before_action :set_run, only: [:show, :edit, :update, :destroy]
 
   # GET /runs

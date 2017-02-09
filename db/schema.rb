@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170204192523) do
+ActiveRecord::Schema.define(version: 20170209195952) do
 
   create_table "runs", force: :cascade do |t|
-    t.date     "date"
+    t.datetime "date"
     t.integer  "resting_pulse"
     t.float    "weight"
-    t.string   "type"
+    t.string   "run_type"
     t.time     "pace"
     t.integer  "heartrate"
-    t.time     "duration"
+    t.integer  "duration"
     t.float    "distance"
     t.string   "weather"
     t.text     "remark"
