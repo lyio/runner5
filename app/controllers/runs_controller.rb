@@ -66,11 +66,11 @@ class RunsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_run
-      @run = Run.find(params[:id])
+      @run = current_user.runs.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def run_params
-      params.require(:run).permit(:date, :resting_pulse, :weight, :type, :pace, :heartrate, :duration, :distance, :weather, :remark)
+      params.require(:run).permit(:date, :resting_pulse, :weight, :run_type, :pace, :heartrate, :duration, :distance, :weather, :remark)
     end
 end
