@@ -1,3 +1,55 @@
 // Place all the styles related to the runs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.run-table-row {
+  height: 90px;
+  border: 1px solid #bf0000;
+  border-radius: 2px;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+
+  .run-date {
+    font-size: 0.9rem;
+    color: grey;
+  }
+
+  .run-type {
+    font-size: 2.0rem;
+  }
+
+  .run-column {
+    display: flex;
+    justify-content: space-around;;
+    align-items: flex-start;;
+    flex-direction: column;
+
+    i {
+      font-size: 16px;
+    }
+
+    span:first-of-type {
+      color: grey;
+    }
+  }
+  .run-actions {
+    display: flex;
+    flex-direction: column;
+    float: right;
+    font-size: 20px;
+    justify-content: space-around;;
+    align-items: flex-end;
+    margin: 8px;
+
+    i {
+      color: #bf0000;
+    }
+
+    a:hover {
+      background-color: gainsboro;
+      i {
+        color: black;
+      }
+    }
+  }
+}

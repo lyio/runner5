@@ -2,43 +2,54 @@
 
 <h1>Runs</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Date</th>
-      <th>Resting pulse</th>
-      <th>Weight</th>
-      <th>Type</th>
-      <th>Pace</th>
-      <th>Heartrate</th>
-      <th>Duration</th>
-      <th>Distance</th>
-      <th>Weather</th>
-      <th>Remark</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @runs.each do |run| %>
-      <tr>
-        <td><%= run.date %></td>
-        <td><%= run.resting_pulse %></td>
-        <td><%= run.weight %></td>
-        <td><%= run.run_type %></td>
-        <td><%= run.format_pace %></td>
-        <td><%= run.heartrate %></td>
-        <td><%= run.format_duration %></td>
-        <td><%= run.distance %></td>
-        <td><%= run.weather %></td>
-        <td><%= run.remark %></td>
-        <td><%= link_to 'Show', run %></td>
-        <td><%= link_to 'Edit', edit_run_path(run) %></td>
-        <td><%= link_to 'Destroy', run, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <div class="run-table-row">
+        <div>
+          <div class="run-date"><%= run.date %></div>
+          <div class="run-type"><%= run.run_type %></div>
+        </div>
+        <div class="run-column">
+          <div>
+            <span><%= fa_icon "paw"%></span>
+            <%= run.format_pace %>
+            <span>min/km</span>
+          </div>
+          <div>
+            <span><%= fa_icon "heartbeat" %></span>
+            <%= run.heartrate %>
+            <span>bpm</span>
+          </div>
+        </div>
+        <div class="run-column">
+          <div>
+            <span><%= fa_icon "hourglass-half"%></span>
+            <%= run.format_duration %>
+          </div>
+          <div>
+            <span><%= fa_icon "road"%></span>
+            <%= run.distance %>
+            <span>km</span>
+          </div>
+          <div>
+            <span><%= fa_icon "thermometer"%></span>
+            <%= run.weather %>
+            <span>°C</span>
+          </div>
+        </div>
+
+        <div class="run-actions">
+          <%= link_to run do %>
+            <%= fa_icon "info-circle" %>
+          <% end %>
+          <%= link_to edit_run_path(run) do %>
+            <%= fa_icon "pencil" %>
+          <% end %>
+          <%= link_to run, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <%= fa_icon "trash" %>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
 
 <br>
 
