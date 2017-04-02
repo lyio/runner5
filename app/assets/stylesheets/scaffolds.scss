@@ -1,4 +1,7 @@
 body {
+  background: url('background.jpg');
+  background-attachment: fixed;
+  background-size: cover;
   background-color: gainsboro;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
@@ -86,4 +89,17 @@ div {
 
 label {
   display: block;
+}
+
+.footer {
+  position: fixed;
+  background-color: #c00;
+  height: 50px;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+
+  a {
+    float: right;
+  }
 }

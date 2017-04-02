@@ -6,6 +6,11 @@ class RunsController < ApplicationController
   # GET /runs.json
   def index
     @runs = current_user.runs
+    @grouped = @runs.group_by { |r| "#{r.date.strftime('%B %Y')}" }
+    p @grouped
+    @distance = Run.overall_distance
+    @count = Run.overall_count
+    @time = Run.overall_time
   end
 
   # GET /runs/1
