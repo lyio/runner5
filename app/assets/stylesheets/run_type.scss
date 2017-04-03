@@ -1,0 +1,20 @@
+// Place all the styles related to the RunType controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.new-run-type form {
+  height: 40px;
+  width: 33%;
+  display: flex;
+  align-items: center;
+  align-content: space-between;
+
+  .field, .actions {
+    margin: 8px;
+  }
+
+  .actions {
+    height: 40px;
+    line-height: 40px;
+  }
+}

@@ -1,0 +1,10 @@
+<div>
+  <ul>
+  <% @run_types.each do |type| %>
+    <li>
+      <span><%= type.name %></span>:
+      <span><%= number_to_percentage(type.heartrate * 100, precision: 0) %></span>
+    </li>
+  <% end %>
+</ul>
+</div>
