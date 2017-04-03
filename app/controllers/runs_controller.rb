@@ -7,7 +7,6 @@ class RunsController < ApplicationController
   def index
     @runs = current_user.runs
     @grouped = @runs.group_by { |r| "#{r.date.strftime('%B %Y')}" }
-    p @grouped
     @distance = Run.overall_distance
     @count = Run.overall_count
     @time = Run.overall_time
@@ -70,6 +69,6 @@ class RunsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def run_params
-      params.require(:run).permit(:date, :resting_pulse, :weight, :run_type, :pace, :heartrate, :duration, :distance, :weather, :remark)
+      params.require(:run).permit(:date, :resting_pulse, :weight, :name, :run_type, :pace, :heartrate, :duration, :distance, :weather, :remark)
     end
 end

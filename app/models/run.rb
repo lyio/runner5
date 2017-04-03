@@ -1,7 +1,8 @@
 class Run < ApplicationRecord
-  validates :date, :heartrate, :run_type, :duration, :distance, presence: true
+  validates :date, :heartrate, :name, :duration, :distance, presence: true
 
   belongs_to :user
+  belongs_to :run_type
 
   default_scope { order date: :desc }
 

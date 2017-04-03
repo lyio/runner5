@@ -10,13 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170325205017) do
+ActiveRecord::Schema.define(version: 20170403182018) do
+
+  create_table "run_types", force: :cascade do |t|
+    t.string   "name"
+    t.float    "heartrate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "runs", force: :cascade do |t|
     t.datetime "date"
     t.integer  "resting_pulse"
     t.float    "weight"
-    t.string   "run_type"
+    t.string   "name"
     t.integer  "pace"
     t.integer  "heartrate"
     t.integer  "duration"
@@ -26,6 +33,8 @@ ActiveRecord::Schema.define(version: 20170325205017) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "user_id"
+    t.integer  "run_type_id"
+    t.index ["run_type_id"], name: "index_runs_on_run_type_id"
     t.index ["user_id"], name: "index_runs_on_user_id"
   end
 
