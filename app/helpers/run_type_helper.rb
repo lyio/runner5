@@ -1,0 +1,2 @@
+module RunTypeHelper
+end
