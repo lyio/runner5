@@ -25,7 +25,14 @@
           <div class="run-table-row">
             <div>
               <div class="run-date"><%= run.format_date %></div>
-              <div class="run-type"><%= run.name %></div>
+              <div class="run-name"><%= run.name %></div>
+              <% if run.run_type %>
+                <div class="run-type">
+                  <%= link_to edit_run_type_path(run.run_type) do %>
+                    <%= run.run_type.name %>
+                  <% end %>
+                </div>
+              <% end %>
             </div>
             <div class="run-column">
               <div>
