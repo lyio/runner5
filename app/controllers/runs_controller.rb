@@ -1,11 +1,13 @@
 class RunsController < AuthenticatedBaseController
   before_action :set_run, only: [:show, :edit, :update, :destroy]
+  before_action :set_run_types, only: [:edit, :new]
 
   # GET /runs
   # GET /runs.json
   def index
-    @runs = current_user.runs
+    @runs = current_user.runs.includes (:run_type)
     @grouped = @runs.group_by { |r| "#{r.date.strftime('%B %Y')}" }
+
     @distance = Run.overall_distance
     @count = Run.overall_count
     @time = Run.overall_time
@@ -66,8 +68,12 @@ class RunsController < AuthenticatedBaseController
       @run = current_user.runs.find(params[:id])
     end
 
+    def set_run_types
+      @run_types = RunType.all.map { |type| [type.name, type.id] }
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def run_params
-      params.require(:run).permit(:date, :resting_pulse, :weight, :name, :run_type, :pace, :heartrate, :duration, :distance, :weather, :remark)
+      params.require(:run).permit(:date, :resting_pulse, :weight, :name, :run_type_id, :pace, :heartrate, :duration, :distance, :weather, :remark)
     end
 end

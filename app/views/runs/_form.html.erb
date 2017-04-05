@@ -17,6 +17,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :run_type %>
+    <%= f.select(:run_type_id, options_for_select(@run_types), :include_blank => true) %>
+  </div>
+
+  <div class="field">
     <%= f.label :resting_pulse %>
     <%= f.text_field :resting_pulse %>
   </div>
