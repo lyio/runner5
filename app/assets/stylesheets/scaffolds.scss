@@ -1,13 +1,17 @@
 body {
-  background: url('background.jpg');
-  background-attachment: fixed;
-  background-size: cover;
-  background-color: gainsboro;
+  background-color: white;
   color: #333;
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
   margin: 33px;
+}
+
+.content-wrapper {
+  background: url('background.jpg');
+  background-attachment: fixed;
+  background-size: cover;
+  padding: 32px;
 }
 
 p, ol, ul, td {
@@ -89,17 +93,4 @@ div {
 
 label {
   display: block;
-}
-
-.footer {
-  position: fixed;
-  background-color: #c00;
-  height: 50px;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-
-  a {
-    float: right;
-  }
 }

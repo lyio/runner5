@@ -19,6 +19,8 @@ gem 'coffee-rails', '~> 4.2'
 # Font awesome for icons
 gem 'font-awesome-rails'
 
+gem 'bootstrap-sass'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

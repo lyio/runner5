@@ -1,7 +1,11 @@
 class RunsController < AuthenticatedBaseController
   before_action :set_run, only: [:show, :edit, :update, :destroy]
   before_action :set_run_types, only: [:edit, :new]
+  before_action :set_user
 
+  def set_user
+    @current_user = current_user
+  end
   # GET /runs
   # GET /runs.json
   def index

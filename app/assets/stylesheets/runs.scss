@@ -2,7 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .run {
-  width: 60%;
+  width: auto;
 }
 
 .run-body{
@@ -20,10 +20,6 @@
   font-weight: bold;
   align-items: center;
   margin-bottom: 8px;
-  position: fixed;
-  right: 40%;
-  left: 2%;
-  top: 1%;
 
   .run-actions {
     font-size: 30px;
