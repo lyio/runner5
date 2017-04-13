@@ -5,9 +5,9 @@ class CreateRuns < ActiveRecord::Migration[5.0]
       t.integer :resting_pulse
       t.float :weight
       t.string :type
-      t.time :pace
+      t.integer :pace
       t.integer :heartrate
-      t.time :duration
+      t.integer :duration
       t.float :distance
       t.string :weather
       t.text :remark
