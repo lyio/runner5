@@ -11,12 +11,13 @@
 
     <!-- Latest compiled and minified CSS -->
   </head>
-
-  <body>
-    <p id="notice"><%= notice %></p>
-    <%= yield %>
-    <div class="footer">
-      <%= link_to "logout", '/logout' %>
+  <body class="fixed skin-red-light">
+    <div class="wrapper">
+      <%= render 'layouts/navigation/layout'%>
+      <div class="content-wrapper">
+        <%= yield %>
+      </div>
+      <%= render 'layouts/navigation/footer' %>
     </div>
   </body>
 </html>

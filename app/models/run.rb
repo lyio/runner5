@@ -5,18 +5,28 @@ class Run < ApplicationRecord
   belongs_to :run_type, required: false
 
   default_scope { order date: :desc }
+  scope :own, -> (user) { where(user_id: user.id)  }
 
+  def self.totals user
+    [
+      self.own(user).sum('distance'),
+      self.own(user).count,
+      self.overall_time(user)
+    ]
+  end
+
+  # unscoped
   def self.overall_distance
     Run.sum('distance')
   end
 
+  # unscoped
   def self.overall_count
     Run.count
   end
 
-  def self.overall_time
-    time = Run.sum('duration')
-    p time
+  def self.overall_time user
+    time = Run.own(user).sum('duration')
     DurationConversions.format_string(time)
   end
 

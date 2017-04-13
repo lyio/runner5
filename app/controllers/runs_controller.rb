@@ -5,12 +5,8 @@ class RunsController < AuthenticatedBaseController
   # GET /runs
   # GET /runs.json
   def index
-    @runs = current_user.runs.includes (:run_type)
+    @runs = Run.own(current_user).includes (:run_type)
     @grouped = @runs.group_by { |r| "#{r.date.strftime('%B %Y')}" }
-
-    @distance = Run.overall_distance
-    @count = Run.overall_count
-    @time = Run.overall_time
   end
 
   # GET /runs/1
