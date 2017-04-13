@@ -1,17 +1,5 @@
 <div class="run">
   <div class="run-header">
-    <div>
-      <span>Overall distance</span>
-      <span><%= fa_icon "road"%><%= number_to_human(@distance, units: {unit: "km"}, precision: 3) %></span>
-    </div>
-    <div>
-      <span>Total runs</span>
-      <%= @count %>
-    </div>
-    <div>
-      <span>ran overall</span>
-      <span><%= fa_icon "clock-o"%><%= @time %></span>
-    </div>
     <div class="run-actions">
       <%= link_to new_run_path do %>
         <%= fa_icon "plus-circle" %>
@@ -28,7 +16,7 @@
               <div class="run-name"><%= run.name %></div>
               <% if run.run_type %>
                 <div class="run-type">
-                  <%= link_to edit_run_type_path(run.run_type) do %>
+                  <%= link_to runs_path(:type => run.run_type.id) do %>
                     <%= run.run_type.name %>
                   <% end %>
                 </div>

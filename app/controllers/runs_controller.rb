@@ -5,7 +5,10 @@ class RunsController < AuthenticatedBaseController
   # GET /runs
   # GET /runs.json
   def index
-    @runs = Run.own(current_user).includes (:run_type)
+    @runs = Run
+              .own(current_user)
+              .filter(params.slice(:type))
+              .includes (:run_type)
     @grouped = @runs.group_by { |r| "#{r.date.strftime('%B %Y')}" }
   end
 
