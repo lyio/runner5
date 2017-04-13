@@ -11,7 +11,7 @@
 
 .run-header {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 0.5fr;
+  grid-template-columns: 1fr 0.5fr;
   height: 50px;
   font-size: 20px;
   background-color: rgba(1, 1, 1, 0.5);
@@ -20,6 +20,11 @@
   font-weight: bold;
   align-items: center;
   margin-bottom: 8px;
+
+  select {
+    color: black;
+    background-color: inherit;
+  }
 
   .run-actions {
     font-size: 30px;

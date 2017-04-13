@@ -1,5 +1,9 @@
 <div class="run">
   <div class="run-header">
+    <%= form_tag '', :method => :get do %>
+      <%= select_tag(:type, options_for_select(@run_types), :include_blank => 'Run type') %>
+      <%= submit_tag 'Filter', name: nil %>
+    <% end %>
     <div class="run-actions">
       <%= link_to new_run_path do %>
         <%= fa_icon "plus-circle" %>

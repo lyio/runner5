@@ -1,6 +1,6 @@
 class RunsController < AuthenticatedBaseController
   before_action :set_run, only: [:show, :edit, :update, :destroy]
-  before_action :set_run_types, only: [:edit, :new]
+  before_action :set_run_types, only: [:edit, :new, :index]
 
   # GET /runs
   # GET /runs.json
