@@ -7,9 +7,9 @@ class DurationConversions
   end
 
   def self.format_string dur
-    return unless dur
+    dur = 0 if dur.nil? || dur.blank?
 
-    Time.at(dur).utc.strftime("%H:%M:%S")
+    Time.at(dur.to_i).utc.strftime("%H:%M:%S")
   end
 
   def self.format_date date
