@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
       if !user
         redirect_to new_session_path, notice: "Uh oh, We could not find the username. Please try again."
       else
-        user.send_login_link
+        user.send_login_link "#{request.protocol}#{request.host_with_port}"
         redirect_to root_path, notice: "We have sent you the link to login to our app."
       end
   end

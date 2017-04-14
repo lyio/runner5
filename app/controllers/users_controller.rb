@@ -25,7 +25,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      @user.send_login_link
+      @user.send_login_link "#{request.protocol}#{request.host_with_port}"
       redirect_to root_path, notice: 'Welcome! We have sent a link to login to the app.'
     else
       render :register

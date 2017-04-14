@@ -13,10 +13,10 @@ class User < ApplicationRecord
     self.username = self.username.delete(' ').downcase
   end
 
-  def send_login_link
+  def send_login_link url
     generate_login_token
 
-    UserMailer.login_link(self).deliver_later
+    UserMailer.login_link(self, url).deliver_later
   end
 
   def generate_login_token
