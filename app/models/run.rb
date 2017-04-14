@@ -1,4 +1,6 @@
 class Run < ApplicationRecord
+  include Filterable
+
   validates :date, :heartrate, :name, :duration, :distance, presence: true
 
   belongs_to :user
@@ -6,6 +8,7 @@ class Run < ApplicationRecord
 
   default_scope { order date: :desc }
   scope :own, -> (user) { where(user_id: user.id)  }
+  scope :type, -> (run_type_id) { where(run_type_id: run_type_id) }
 
   def self.totals user
     [
