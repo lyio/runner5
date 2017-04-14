@@ -1,14 +1,14 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  date: 
-  resting_pulse: 
-  weight: 
-  type: 
-  pace: 
-  heartrate: 
-  duration: 2017-02-04 18:08:04
-  distance: 
+  date: 2017-02-04 18:08:04
+  resting_pulse: 59
+  weight: 71.1
+  run_type:
+  pace: 8000
+  heartrate: 149
+  duration: 50000
+  distance: 10.3
   weather: MyString
   remark: MyString
 
@@ -16,7 +16,7 @@ two:
   date: 
   resting_pulse: 
   weight: 
-  type: 
+  run_type: 
   pace: 
   heartrate: 
   duration: 2017-02-04 18:08:04
