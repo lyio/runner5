@@ -14,7 +14,7 @@ class Run < ApplicationRecord
     [
       self.own(user).sum('distance'),
       self.own(user).count,
-      self.overall_time(user)
+      self.own_overall_time(user)
     ]
   end
 
@@ -28,7 +28,12 @@ class Run < ApplicationRecord
     Run.count
   end
 
-  def self.overall_time user
+  #unscoped
+  def self.overall_time
+    Run.sum('duration')
+  end
+
+  def self.own_overall_time user
     time = Run.own(user).sum('duration')
     DurationConversions.format_string(time)
   end

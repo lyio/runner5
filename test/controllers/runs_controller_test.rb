@@ -7,7 +7,7 @@ class RunsControllerTest < ActionDispatch::IntegrationTest
 
   test "should require authentication" do
     get runs_url
-    assert_response :found
+    assert_redirected_to '/login'
   end
 
   # test "should get index" do

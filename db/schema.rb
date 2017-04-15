@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170403182018) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "run_types", force: :cascade do |t|
     t.string   "name"
     t.float    "heartrate"
@@ -34,8 +37,8 @@ ActiveRecord::Schema.define(version: 20170403182018) do
     t.datetime "updated_at",    null: false
     t.integer  "user_id"
     t.integer  "run_type_id"
-    t.index ["run_type_id"], name: "index_runs_on_run_type_id"
-    t.index ["user_id"], name: "index_runs_on_user_id"
+    t.index ["run_type_id"], name: "index_runs_on_run_type_id", using: :btree
+    t.index ["user_id"], name: "index_runs_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -46,8 +49,10 @@ ActiveRecord::Schema.define(version: 20170403182018) do
     t.datetime "token_generated_at"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["username"], name: "index_users_on_username", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
+  add_foreign_key "runs", "run_types"
+  add_foreign_key "runs", "users"
 end
