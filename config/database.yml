@@ -11,7 +11,12 @@ default: &default
 
 development:
   <<: *default
-  database: db/development.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: runner5
+  host: localhost
+  username: runner5
+  password: devpassword
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

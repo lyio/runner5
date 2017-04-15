@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   validates :email, :username, uniqueness: true, presence: true
+  validates :fullname, presence: true
   has_many :runs, dependent: :destroy
 
   before_save :format_email_username
