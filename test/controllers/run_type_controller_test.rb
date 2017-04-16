@@ -29,7 +29,7 @@ class RunTypesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create run_type" do
     assert_difference('RunType.count') do
-      post run_types_url, params: { run_type: { name: "@runtype.name" } }
+      post run_types_url, params: { run_type: { name: "@runtype.name", heartrate: 0.6 } }
     end
 
     assert_redirected_to run_types_url
