@@ -59,7 +59,7 @@ Rails.application.configure do
    port:                 587,
    domain:               'runner5.de',
    user_name:            'track.runner5.app@gmail.com',
-   password:             'm48a3KzUJl5H#&WSq!MO',
+   password:             'BezmKYD408s753PL5SmQ',
    authentication:       'plain',
    enable_starttls_auto: true
  }

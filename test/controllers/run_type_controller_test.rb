@@ -1,58 +1,47 @@
 require 'test_helper'
 
-class RunTypeControllerTest < ActionDispatch::IntegrationTest
-  require 'test_helper'
-
-class RunsControllerTest < ActionDispatch::IntegrationTest
-  setup do
-    @run = runs(:one)
-  end
+class RunTypesControllerTestNoAuth < ActionDispatch::IntegrationTest
 
   test "should require authentication" do
-    get run_types_url
+    get runs_url
     assert_redirected_to '/login'
   end
-
-  # test "should get index" do
-  #   get runs_url
-  #   assert_response :success
-  # end
-
-  # test "should get new" do
-  #   get new_run_url
-  #   assert_response :success
-  # end
-
-  # test "should create run" do
-  #   assert_difference('Run.count') do
-  #     post runs_url, params: { run: { date: @run.date, distance: @run.distance, duration: @run.duration, heartrate: @run.heartrate, pace: @run.pace, remark: @run.remark, resting_pulse: @run.resting_pulse, type: @run.type, weather: @run.weather, weight: @run.weight } }
-  #   end
-
-  #   assert_redirected_to run_url(Run.last)
-  # end
-
-  # test "should show run" do
-  #   get run_url(@run)
-  #   assert_response :success
-  # end
-
-  # test "should get edit" do
-  #   get edit_run_url(@run)
-  #   assert_response :success
-  # end
-
-  # test "should update run" do
-  #   patch run_url(@run), params: { run: { date: @run.date, distance: @run.distance, duration: @run.duration, heartrate: @run.heartrate, pace: @run.pace, remark: @run.remark, resting_pulse: @run.resting_pulse, type: @run.type, weather: @run.weather, weight: @run.weight } }
-  #   assert_redirected_to run_url(@run)
-  # end
-
-  # test "should destroy run" do
-  #   assert_difference('Run.count', -1) do
-  #     delete run_url(@run)
-  #   end
-
-  #   assert_redirected_to runs_url
-  # end
 end
 
+class RunTypesControllerTest < ActionDispatch::IntegrationTest
+  setup do
+    @run_type = run_types(:one)
+    user = users(:one)
+
+    user.generate_login_token
+    get "/auth/#{user.id}/#{user.login_token}"
+  end
+
+  test "should get index" do
+    get run_types_url
+    assert_response :success
+  end
+
+  test "should get new" do
+    get new_run_type_url
+    assert_response :success
+  end
+
+  test "should create run_type" do
+    assert_difference('RunType.count') do
+      post run_types_url, params: { run_type: { name: "@runtype.name", heartrate: 0.6 } }
+    end
+
+    assert_redirected_to run_types_url
+  end
+
+  test "should get edit" do
+    get edit_run_type_url(@run_type)
+    assert_response :success
+  end
+
+  test "should update run_type" do
+    patch run_type_url(@run_type), params: { run_type: { name: "@run.name", heartrate: 0.8 }}
+    assert_redirected_to run_types_url
+  end
 end

@@ -31,13 +31,12 @@ class RunsController < AuthenticatedBaseController
   def create
     @run = Run.new(run_params)
     @run.user_id = current_user.id
-
     respond_to do |format|
       if @run.save
         format.html { redirect_to @run, notice: 'Run was successfully created.' }
         format.json { render :show, status: :created, location: @run }
       else
-        format.html { render :new }
+        format.html { redirect_to new_run_path }
         format.json { render json: @run.errors, status: :unprocessable_entity }
       end
     end
