@@ -5,6 +5,7 @@ class Run < ApplicationRecord
 
   belongs_to :user
   belongs_to :run_type, required: false
+  belongs_to :shoe, required: false
 
   default_scope { order date: :desc }
   scope :own, -> (user) { where(user_id: user.id)  }
