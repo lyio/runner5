@@ -1,3 +1,46 @@
 // Place all the styles related to the Shoes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.r5-info-box {
+  width: 25%;
+  height: 90px;
+  border-radius: 3px;
+  border: 1px solid black;  
+  display: grid;
+  background-color: white;
+  
+  grid-template-columns: 90px 1fr 30px;
+  grid-template-rows: 1fr;
+}
+
+.r5-info-box .r5-info-box-icon {
+  background-color: #dd4b39;
+  font-size: 34px;  
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ .r5-info-box .r5-info-box-content {
+   grid-column-start: 2;
+   display: flex;
+   flex-direction: column;
+   align-content: space-between;
+   padding: 8px;
+}
+
+.r5-info-box .box-actions {
+  grid-column-start: 3;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: space-around;
+  background-color: #dd4b39;
+}
+
+.r5-info-box  .box-actions  div {
+  text-align: center;
+  font-size: 16px;
+}

@@ -1,27 +1,31 @@
-<%= form_for(shoe) do |f| %>
-  <% if shoe.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(shoe.errors.count, "error") %> prohibited this shoe from being saved:</h2>
+<div class="login-form box box-info">
+  <div class="box-header with-border">
+    <%= form_for(shoe, :class => 'form-horizontal') do |f| %>
+    <% if shoe.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(shoe.errors.count, "error") %> prohibited this shoe from being saved:</h2>
 
-      <ul>
-      <% shoe.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <ul>
+        <% shoe.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+    <div class="box-body">
+      <div class="form-group">
+        <label class="control-label col-sm-2"> Name </label>
+        <%= f.text_field :name %>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2"> In use since: </label>
+        <%= f.date_field :bought_when %>
+      </div>
+    </div>
+    <div class="box-footer">
+      <%= f.submit 'Create', :class=> 'btn btn-info pull-left' %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %>
-    <%= f.text_field :name %>
   </div>
-
-  <div class="field">
-    <%= f.label :bought_when %>
-    <%= f.text_field :bought_when %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>  
