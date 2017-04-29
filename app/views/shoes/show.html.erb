@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @shoe.name %>
+</p>
+
+<p>
+  <strong>Bought when:</strong>
+  <%= @shoe.bought_when %>
+</p>
+
+<%= link_to 'Edit', edit_shoe_path(@shoe) %> |
+<%= link_to 'Back', shoes_path %>

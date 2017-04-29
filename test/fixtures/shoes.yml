@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: "Asics Gel Kayano 22"
+  bought_when: 2017-02-04 18:08:04
+
+two:
+  name: "Asiscs Gel Surveyor 5"
+  bought_when: 2017-02-04 18:08:04

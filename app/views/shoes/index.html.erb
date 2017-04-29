@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Shoes</h1>
+<div class="row">
+  <%= link_to 'New Shoe', new_shoe_path, :class => 'btn btn-info pull-left' %>
+</div>
+<div class="row">
+<% @shoes.each do |shoe| %>
+      <div class="">
+        <div class="r5-info-box">
+          <span class="r5-info-box-icon">
+            <%= fa_icon 'envelope' %>
+          </span>
+          <div class="r5-info-box-content">
+            <span class="info-box-text"><%= shoe.name %></span>
+            <span class="info-box-text"><%= shoe.bought_when %></span>
+            <span class="info-box-number"><%= shoe.mileage %></span>
+          </div>
+          <div class="box-actions">
+            <div>
+              <%= link_to edit_shoe_path(shoe) do %>
+                <%= fa_icon "pencil" %>
+              <% end %>
+            </div>
+            <div>
+              <%= link_to shoe, method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <%= fa_icon "trash" %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+</div>

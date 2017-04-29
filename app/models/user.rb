@@ -2,6 +2,7 @@ class User < ApplicationRecord
   validates :email, :username, uniqueness: true, presence: true
   validates :fullname, presence: true
   has_many :runs, dependent: :destroy
+  has_many :shoes, dependent: :destroy
 
   before_save :format_email_username
 
