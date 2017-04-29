@@ -1,10 +1,19 @@
-<div class="container-fluid login-form-wrapper">
-  <div class="login-form">
+<div class="login-form box box-info">
+  <div class="box-header with-border">
     <div>
-      <%= form_tag "/sessions" do %>
-        <label> Email / Username </label>
-        <%= text_field_tag "value" %>
-        <%= submit_tag "Login" %>
+      <%= form_tag "/sessions", :html => {:class => 'form-horizontal' } do %>
+        <div class="box-body">
+          <div class="form-group"> 
+            <label class="control-label col-sm-2"> Email / Username </label>
+            <div class="input-group col-sm-5">
+              <span class="input-group-addon"><%= fa_icon 'user' %></span>
+              <%= text_field_tag "value", 'Username/Email', :class => 'form-control' %>
+            </div>
+          </div>
+          <div class="box-footer">
+            <%= submit_tag 'Register', :class=> 'btn btn-info pull-left' %>
+          </div>
+        </div>
       <% end %>
     </div>
     <div>
