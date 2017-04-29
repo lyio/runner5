@@ -14,7 +14,8 @@ class ShoesControllerTest < ActionDispatch::IntegrationTest
 
     user = users(:one)
     @shoe.user = user
-
+    
+    @shoe.save!
     user.generate_login_token
     get "/auth/#{user.id}/#{user.login_token}"
   end
