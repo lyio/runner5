@@ -16,7 +16,14 @@
 </p>
 
 <p>
-  <strong>Type:</strong>
+  <strong>Shoe:</strong>
+  <% if @run.shoe %>
+    <%= @run.shoe.name %>
+  <% end %>
+</p>
+
+<p>
+  <strong>Name:</strong>
   <%= @run.name %>
 </p>
 

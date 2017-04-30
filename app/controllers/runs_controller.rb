@@ -1,6 +1,7 @@
 class RunsController < AuthenticatedBaseController
   before_action :set_run, only: [:show, :edit, :update, :destroy]
   before_action :set_run_types, only: [:edit, :new, :index]
+  before_action :set_shoes, only: [:edit, :new]
 
   # GET /runs
   # GET /runs.json
@@ -8,7 +9,7 @@ class RunsController < AuthenticatedBaseController
     @runs = Run
               .own(current_user)
               .filter(params.slice(:type))
-              .includes (:run_type)
+              .includes(:run_type)
     @grouped = @runs.group_by { |r| "#{r.date.strftime('%B %Y')}" }
   end
 
@@ -70,8 +71,26 @@ class RunsController < AuthenticatedBaseController
       @run_types = RunType.all.map { |type| [type.name, type.id] }
     end
 
+    def set_shoes
+      @shoes = Shoe.own(current_user).map { |shoe| [shoe.name, shoe.id] }
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def run_params
-      params.require(:run).permit(:date, :resting_pulse, :weight, :name, :run_type_id, :pace, :heartrate, :duration, :distance, :weather, :remark)
+      params
+        .require(:run)
+        .permit(
+          :date, 
+          :resting_pulse, 
+          :weight, :name, 
+          :run_type_id, 
+          :shoe_id, 
+          :pace,
+          :heartrate, 
+          :duration, 
+          :distance, 
+          :weather, 
+          :remark
+        )
     end
 end
