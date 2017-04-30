@@ -17,7 +17,9 @@
 
 <p>
   <strong>Shoe:</strong>
-  <%= @run.shoe.name %>
+  <% if @run.shoe %>
+    <%= @run.shoe.name %>
+  <% end %>
 </p>
 
 <p>
