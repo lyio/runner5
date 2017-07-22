@@ -22,3 +22,5 @@
 
 # ignore spring dev server directory
 spring/*.pid
+/public/packs
+/node_modules

@@ -6,7 +6,7 @@
     <% end %>
     <div class="run-actions">
       <%= link_to new_run_path do %>
-        <%= fa_icon "plus-circle" %>
+        <i class="fa fa-plus-circle" ></i>
       <% end %>
     </div>
   </div>
@@ -28,28 +28,28 @@
             </div>
             <div class="run-column">
               <div>
-                <span><%= fa_icon "paw"%></span>
+                <span><i class="fa fa-paw"></i></span>
                 <%= run.format_pace %>
                 <span>min/km</span>
               </div>
               <div>
-                <span><%= fa_icon "heartbeat" %></span>
+                <span><i class="fa fa-heartbeat"></i></span>
                 <%= run.heartrate %>
                 <span>bpm</span>
               </div>
             </div>
             <div class="run-column">
               <div>
-                <span><%= fa_icon "hourglass-half"%></span>
+                <span><i class="fa fa-hourglass-half"></i></span>
                 <%= run.format_duration %>
               </div>
               <div>
-                <span><%= fa_icon "road"%></span>
+                <span><i class="fa fa-road"></i></span>
                 <%= run.distance %>
                 <span>km</span>
               </div>
               <div>
-                <span><%= fa_icon "thermometer"%></span>
+                <span><i class="fa fa-thermometer"></i></span>
                 <%= run.weather %>
                 <span>°C</span>
               </div>
@@ -57,13 +57,13 @@
 
             <div class="run-actions">
               <%= link_to run do %>
-                <%= fa_icon "info-circle" %>
+                <i class="fa fa-info-circle"></i>
               <% end %>
               <%= link_to edit_run_path(run) do %>
-                <%= fa_icon "pencil" %>
+                <i class="fa fa-pencil"></i>
               <% end %>
               <%= link_to run, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                <%= fa_icon "trash" %>
+                <i class="fa fa-trash"></i>
               <% end %>
             </div>
           </div>

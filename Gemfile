@@ -1,8 +1,8 @@
-source 'http://rubygems.org'
+source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.0'
+gem 'rails', '~> 5.1.0'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
@@ -19,6 +19,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'font-awesome-rails'
 
 gem 'bootstrap-sass'
+
+gem 'webpacker'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

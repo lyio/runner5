@@ -9,7 +9,7 @@
       <div class="">
         <div class="r5-info-box">
           <span class="r5-info-box-icon">
-            <%= fa_icon 'envelope' %>
+            <i class="fa fa-envelope-o"></i>
           </span>
           <div class="r5-info-box-content">
             <span class="info-box-text"><%= shoe.name %></span>
@@ -19,12 +19,12 @@
           <div class="box-actions">
             <div>
               <%= link_to edit_shoe_path(shoe) do %>
-                <%= fa_icon "pencil" %>
+                <i class="fa fa-pencil"></i>
               <% end %>
             </div>
             <div>
               <%= link_to shoe, method: :delete, data: { confirm: 'Are you sure?' } do %>
-                <%= fa_icon "trash" %>
+                <i class="fa fa-trash"></i>
               <% end %>
             </div>
           </div>
