@@ -12,17 +12,14 @@
 
 ActiveRecord::Schema.define(version: 20170722202702) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "run_types", id: :serial, force: :cascade do |t|
+  create_table "run_types", force: :cascade do |t|
     t.string "name"
     t.float "heartrate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "runs", id: :serial, force: :cascade do |t|
+  create_table "runs", force: :cascade do |t|
     t.datetime "date"
     t.integer "resting_pulse"
     t.float "weight"
@@ -43,7 +40,7 @@ ActiveRecord::Schema.define(version: 20170722202702) do
     t.index ["user_id"], name: "index_runs_on_user_id"
   end
 
-  create_table "shoes", id: :serial, force: :cascade do |t|
+  create_table "shoes", force: :cascade do |t|
     t.string "name"
     t.date "bought_when"
     t.datetime "created_at", null: false
@@ -52,7 +49,7 @@ ActiveRecord::Schema.define(version: 20170722202702) do
     t.index ["user_id"], name: "index_shoes_on_user_id"
   end
 
-  create_table "users", id: :serial, force: :cascade do |t|
+  create_table "users", force: :cascade do |t|
     t.string "fullname"
     t.string "username"
     t.string "email"
@@ -67,8 +64,8 @@ ActiveRecord::Schema.define(version: 20170722202702) do
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.string "confirmation_token"
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
@@ -83,8 +80,4 @@ ActiveRecord::Schema.define(version: 20170722202702) do
     t.index ["username"], name: "index_users_on_username", unique: true
   end
 
-  add_foreign_key "runs", "run_types"
-  add_foreign_key "runs", "shoes"
-  add_foreign_key "runs", "users"
-  add_foreign_key "shoes", "users"
 end

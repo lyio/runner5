@@ -3,18 +3,18 @@ require 'test_helper'
 class RunTypesControllerTestNoAuth < ActionDispatch::IntegrationTest
 
   test "should require authentication" do
-    get runs_url
-    assert_redirected_to '/login'
+    get run_types_url
+    assert_redirected_to new_user_session_url
   end
 end
 
 class RunTypesControllerTest < ActionDispatch::IntegrationTest
+
   setup do
     @run_type = run_types(:one)
     user = users(:one)
 
-    user.generate_login_token
-    get "/auth/#{user.id}/#{user.login_token}"
+    sign_in user
   end
 
   test "should get index" do

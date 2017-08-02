@@ -4,12 +4,12 @@ one:
   fullname: MyString1
   username: MyString1
   email: MyString@example.com
-  login_token: useronetoken
-  token_generated_at: 2017-02-04 20:25:24
+  encrypted_password: <%= Devise::Encryptor.digest(User, "12345678") %>
+  confirmed_at: <%= Time.now %>
 
 two:
   fullname: MyString2
   username: MyString2
   email: MyString@234.com
-  login_token: MyString
-  token_generated_at: 2017-02-04 20:25:24
+  encrypted_password: <%= Devise::Encryptor.digest(User, "12345678") %>
+  confirmed_at: <%= Time.now %>
