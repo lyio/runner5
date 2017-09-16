@@ -98,7 +98,7 @@ Rails.application.configure do
     user_name:            'api_key',
     password:             ENV['SENDGRID_KEY'],
     authentication:       'plain',
-    domain:               'heroku.com'
+    domain:               'heroku.com',
     enable_starttls_auto: true
   }
 end
