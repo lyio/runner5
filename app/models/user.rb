@@ -1,18 +1,15 @@
 class User < ApplicationRecord
-  validates :email, :username, uniqueness: true, presence: true
-  validates :fullname, presence: true
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable,
+         :confirmable, :lockable
+
   has_many :runs, dependent: :destroy
   has_many :shoes, dependent: :destroy
 
-  before_save :format_email_username
-
   def self.find_user_by(value)
     where(["username = :value OR email = :value", {value: value}]).first
-  end
-
-  def format_email_username
-    self.email = self.email.delete(' ').downcase
-    self.username = self.username.delete(' ').downcase
   end
 
   def send_login_link url

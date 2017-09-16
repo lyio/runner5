@@ -4,7 +4,7 @@ class ShoesControllerTestNoAuth < ActionDispatch::IntegrationTest
 
   test "should require authentication" do
     get runs_url
-    assert_redirected_to '/login'
+    assert_redirected_to new_user_session_url
   end
 end
 
@@ -16,8 +16,7 @@ class ShoesControllerTest < ActionDispatch::IntegrationTest
     @shoe.user = user
     
     @shoe.save!
-    user.generate_login_token
-    get "/auth/#{user.id}/#{user.login_token}"
+    sign_in user
   end
 
   test "should get index" do

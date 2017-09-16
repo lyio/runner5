@@ -59,6 +59,12 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
+    devise (4.3.0)
+      bcrypt (~> 3.0)
+      orm_adapter (~> 0.1)
+      railties (>= 4.1.0, < 5.2)
+      responders
+      warden (~> 1.2.3)
     erubi (1.6.0)
     execjs (2.7.0)
     ffi (1.9.18)
@@ -118,6 +124,7 @@ GEM
     notiffany (0.1.1)
       nenv (~> 0.1)
       shellany (~> 0.0)
+    orm_adapter (0.5.0)
     pg (0.20.0)
     pg (0.20.0-x86-mingw32)
     pry (0.10.4)
@@ -164,6 +171,9 @@ GEM
     rb-fsevent (0.9.8)
     rb-inotify (0.9.8)
       ffi (>= 0.5.0)
+    responders (2.4.0)
+      actionpack (>= 4.2.0, < 5.3)
+      railties (>= 4.2.0, < 5.3)
     ruby-progressbar (1.8.1)
     sass (3.4.23)
     sass-rails (5.0.6)
@@ -199,15 +209,13 @@ GEM
       tzinfo (>= 1.0.0)
     uglifier (3.2.0)
       execjs (>= 0.3.0, < 3)
+    warden (1.2.7)
+      rack (>= 1.0)
     web-console (3.5.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
       bindex (>= 0.4.0)
       railties (>= 5.0)
-    webpacker (1.2)
-      activesupport (>= 4.2)
-      multi_json (~> 1.2)
-      railties (>= 4.2)
     websocket-driver (0.6.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.2)
@@ -221,6 +229,7 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   coffee-rails (~> 4.2)
+  devise
   font-awesome-rails
   guard (= 2.13.0)
   guard-minitest (= 2.4.4)
@@ -241,7 +250,6 @@ DEPENDENCIES
   tzinfo-data
   uglifier (>= 1.3.0)
   web-console
-  webpacker
 
 BUNDLED WITH
    1.14.6

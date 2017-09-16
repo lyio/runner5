@@ -10,58 +10,74 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170419194356) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20170722202702) do
 
   create_table "run_types", force: :cascade do |t|
-    t.string   "name"
-    t.float    "heartrate"
+    t.string "name"
+    t.float "heartrate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "runs", force: :cascade do |t|
     t.datetime "date"
-    t.integer  "resting_pulse"
-    t.float    "weight"
-    t.string   "name"
-    t.integer  "pace"
-    t.integer  "heartrate"
-    t.integer  "duration"
-    t.float    "distance"
-    t.string   "weather"
-    t.text     "remark"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
-    t.integer  "user_id"
-    t.integer  "run_type_id"
-    t.integer  "shoe_id"
-    t.index ["run_type_id"], name: "index_runs_on_run_type_id", using: :btree
-    t.index ["shoe_id"], name: "index_runs_on_shoe_id", using: :btree
-    t.index ["user_id"], name: "index_runs_on_user_id", using: :btree
+    t.integer "resting_pulse"
+    t.float "weight"
+    t.string "name"
+    t.integer "pace"
+    t.integer "heartrate"
+    t.integer "duration"
+    t.float "distance"
+    t.string "weather"
+    t.text "remark"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.integer "run_type_id"
+    t.integer "shoe_id"
+    t.index ["run_type_id"], name: "index_runs_on_run_type_id"
+    t.index ["shoe_id"], name: "index_runs_on_shoe_id"
+    t.index ["user_id"], name: "index_runs_on_user_id"
   end
 
   create_table "shoes", force: :cascade do |t|
-    t.string   "name"
-    t.date     "bought_when"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "user_id"
-    t.index ["user_id"], name: "index_shoes_on_user_id", using: :btree
+    t.string "name"
+    t.date "bought_when"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_shoes_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "fullname"
-    t.string   "username"
-    t.string   "email"
-    t.string   "login_token"
+    t.string "fullname"
+    t.string "username"
+    t.string "email"
+    t.string "login_token"
     t.datetime "token_generated_at"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
-    t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.string "confirmation_token"
+    t.datetime "confirmed_at"
+    t.datetime "confirmation_sent_at"
+    t.integer "failed_attempts", default: 0, null: false
+    t.string "unlock_token"
+    t.datetime "locked_at"
+    t.string "unconfirmed_email"
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
+    t.index ["username"], name: "index_users_on_username", unique: true
   end
 
 end
